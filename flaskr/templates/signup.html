@@ -4,21 +4,23 @@
 
 {% block page_name %}
 
-<h1>Login</h1>
+<h1>Sign Up</h1>
 
 {% endblock %}
 
 <!-- Block that contains html contents -->
 
 {% block content %}
-    
-<form method="POST" action="/signin">
+
+<form method="POST" action="/signup">
     <input type="text" name="username" placeholder="username"required/>
     <br><br>
     <input type="password" name="password" placeholder="password"required/>
     <br><br>
-    <input type="submit" value="Login"/>
+    <input type="submit" value="Sign Up"/>
     <br><br>
 </form>
 
-{% endblock %} 
+{{message}}
+
+{% endblock %}

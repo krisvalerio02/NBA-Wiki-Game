@@ -10,20 +10,34 @@
 
 <body>
     <center>
-        <!-- TODO(Project 1): Implement routes. -->
-            <!-- Nav Bar -->
-            <nav>   
-                <a href="/">Home</a> 
-                <a href="/about">About</a>  
-                <a href="/login">Login</a> 
-                <a href="/signup">Sign Up</a>
-            </nav>
-            <img src = "https://storage.cloud.google.com/nba-images/nba_logo.png?authuser=3" alt = "Nba Logo" width="400" height=auto>
 
-            
-            <p>Hello World! mf</p>
-            <p>breh</p>
+<!-- Nav Bar -->
+        <nav>   
+            <a href="/">Home</a> 
+            <a href="/about">About</a>  
+            <a href="/login">Login</a> 
+            <a href="/signup">Sign Up</a>
+        </nav>
+<!-- NBA Logo -->
+        <img src = "https://storage.cloud.google.com/nba-images/nba_logo.png?authuser=3" 
+        alt = "NBA Logo" width="275" height=auto>
+
+
+
+<!-- Blocks are used as placeholders for child templates to fill in with their own content -->
+
+<!-- Block that contains html page_name -->
+
+        {% block page_name %}
+        {% endblock %}
+
+<!-- Block that contains html contents -->
+
+        {% block content %}
+        {% endblock %}
+
     </center>
+
 </body>
 
 </html>
