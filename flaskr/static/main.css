@@ -1,0 +1,38 @@
+body {
+    padding: 0;
+    background-color: rgb(213, 217, 221);
+    text-align: center;
+}
+nav {
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+nav span {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 18px;
+}
+nav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+strong {
+    color: black;
+}
+
+nav a:hover {
+    background-color: rgb(213, 217, 221);
+    color: black;
+}
+nav a.active {
+    background-color: rgb(213, 217, 221);
+    color: black;
+}

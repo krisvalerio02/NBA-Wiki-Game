@@ -104,3 +104,16 @@ def make_endpoints(app, bucket_client):
                                 welcome = welcome))
         resp.set_cookie('welcome', '', expires = 0)
         return resp
+
+    @app.route('/collection')
+    def collection():
+        value = request.cookies.get('value')
+        username = request.cookies.get('username')
+        welcome = True
+        resp = make_response(
+            render_template("collection.html",
+                                value = value,
+                                username = username,
+                                welcome = welcome))
+        resp.set_cookie('welcome', '', expires = 0)
+        return resp

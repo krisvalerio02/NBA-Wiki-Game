@@ -3,59 +3,57 @@
 
 <head>
     <head>
-        <!-- TODO(Checkpoint Requirement 3): Change the title and content of your wiki.-->
+        <!-- Title of NBA Wiki Game, this is what is displayed on browser tabs -->
+
         <title>NBA Wiki Game</title>
+
+        <!-- Link style sheet -->
+
+        <link rel = 'stylesheet' type = 'text/css' href = 'static/main.css'>
     </head>
 </head>
 
+<!-- body of main.html, contains nav bar and such -->
+
 <body>
-    <center>
 
 <!-- Nav Bar -->
 
 <!-- If user is logged in, display this navbar. Otherwise, display the other one -->
 
-        {% if username %}
+    {% if username %}
 
-        <nav>    
-            <a href="/">Home</a>
-            <a href="/about">About</a>  
-            <span>|&emsp;<b>{{username}}</b>&emsp;|</span>
-            <a href="/play">Play</a>
-            <a href="/logout">Logout</a> 
-        </nav>
-        
-        {% else %}
+    <nav>    
+        <a href="/">Home</a>
+        <a href="/about">About</a>  
+        <span><strong>|&emsp;{{username}}&emsp;|</strong></span>
+        <a href="/play">Play</a>
+        <a href="/collection">Collection</a>
+        <a href="/logout">Logout</a> 
+    </nav>
+    
+    {% else %}
 
-        <nav>   
-            <a href="/">Home</a> 
-            <a href="/about">About</a>  
-            <a href="/login">Login</a> 
-            <a href="/signup">Sign Up</a>
-        </nav>
+    <nav>   
+        <a href="/">Home</a> 
+        <a href="/about">About</a>  
+        <a href="/login">Login</a> 
+        <a href="/signup">Sign Up</a>
+    </nav>
 
-        {% endif %}
-
-<!-- NBA Logo -->
-
-        <img src = "https://storage.cloud.google.com/nba-images/nba_logo.png?authuser=3" 
-        alt = "NBA Logo" width="275" height=auto>
-
-
+    {% endif %}
 
 <!-- Blocks are used as placeholders for child templates to fill in with their own content -->
 
 <!-- Block that contains html page_name -->
 
-        {% block page_name %}
-        {% endblock %}
+    {% block page_name %}
+    {% endblock %}
 
 <!-- Block that contains html contents -->
 
-        {% block content %}
-        {% endblock %}
-
-    </center>
+    {% block content %}
+    {% endblock %}
 
 </body>
 
