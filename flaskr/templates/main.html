@@ -12,13 +12,32 @@
     <center>
 
 <!-- Nav Bar -->
+
+<!-- If user is logged in, display this navbar. Otherwise, display the other one -->
+
+        {% if username %}
+
+        <nav>    
+            <a href="/">Home</a>
+            <a href="/about">About</a>  
+            <span>|&emsp;<b>{{username}}</b>&emsp;|</span>
+            <a href="/play">Play</a>
+            <a href="/logout">Logout</a> 
+        </nav>
+        
+        {% else %}
+
         <nav>   
             <a href="/">Home</a> 
             <a href="/about">About</a>  
             <a href="/login">Login</a> 
             <a href="/signup">Sign Up</a>
         </nav>
+
+        {% endif %}
+
 <!-- NBA Logo -->
+
         <img src = "https://storage.cloud.google.com/nba-images/nba_logo.png?authuser=3" 
         alt = "NBA Logo" width="275" height=auto>
 
