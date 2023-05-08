@@ -9,6 +9,7 @@ def make_endpoints(app, bucket_client):
 
     @app.route("/")
     def home():
+        # Get and set cookie information if a user is logged in, do this per route
         value = request.cookies.get('value')
         username = request.cookies.get('username')
         welcome = request.cookies.get('welcome')        
@@ -35,6 +36,7 @@ def make_endpoints(app, bucket_client):
         # Create backend instance, accessing 'nba-user-credentials' bucket
         backend = Backend('nba-user-credentials', bucket_client)
         message = ''
+
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
@@ -66,9 +68,11 @@ def make_endpoints(app, bucket_client):
     def signup():
         # Create backend instance, accessing 'nba-user-credentials' bucket
         backend = Backend('nba-user-credentials', bucket_client)
+
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
+
             # backend.sign_up() will sign the user up. If successful, True will be returned
             if backend.sign_up(username, password):
                 return redirect(url_for('login'))
@@ -81,8 +85,22 @@ def make_endpoints(app, bucket_client):
     @app.route('/logout')
     def logout():
         resp = make_response(render_template('home.html'))
+        # Reset cookie settings
         resp.set_cookie('value', '', expires = 0)
         resp.set_cookie('username', '', expires = 0)
         resp.set_cookie('welcome', '', expires = 0)
         session.pop('username', None)
+        return resp
+
+    @app.route('/play')
+    def play():
+        value = request.cookies.get('value')
+        username = request.cookies.get('username')
+        welcome = True
+        resp = make_response(
+            render_template("play.html",
+                                value = value,
+                                username = username,
+                                welcome = welcome))
+        resp.set_cookie('welcome', '', expires = 0)
         return resp
