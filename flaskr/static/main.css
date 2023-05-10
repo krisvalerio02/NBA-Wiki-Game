@@ -46,13 +46,26 @@ nav a.active {
     display: flex;
     justify-content: center;
     align-items: right;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
     margin-bottom: 35px;
     padding: 10px 0px 10px 10px;
+    
+    background-color: rgba(240, 189, 7, 0.886);
+/* Display gray borders and shadows on the bottom and right sides of the card */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
   }
-  
+
+  .guess-box {
+    position: absolute;
+    background-color: #fff;
+    padding: 0px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    right: 180px;
+    margin-top: -22px;
+  }
   .card-img {
     width: 200px;
     height: 200px;
@@ -60,6 +73,7 @@ nav a.active {
     border-radius: 5px;
     border: 1px solid black;
     box-sizing: border-box;
+    background-color:white;
   }
   
   .card-text {
@@ -70,11 +84,6 @@ nav a.active {
   
   .card-text h2 {
     font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .card-text p {
-    font-size: 16px;
     margin-bottom: 10px;
   }
   
