@@ -3,12 +3,21 @@ body {
     background-color: rgb(213, 217, 221);
     text-align: center;
 }
-nav {
+
+.main_nav_bar {
     background-color: white;
     overflow: hidden;
     display: flex;
     justify-content: center;
 }
+
+.play_options {
+    background-color: rgb(206, 203, 203);
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+
 nav span {
     color: white;
     text-align: center;
@@ -49,31 +58,68 @@ nav a.active {
     border-radius: 8px;
     margin-bottom: 35px;
     padding: 10px 0px 10px 10px;
-    
-    background-color: rgba(240, 189, 7, 0.886);
+
+/* If it's a gold card, display this color rgba(240, 189, 7, 0.886) */
+    /*background-color: rgba(240, 189, 7, 0.886);*/
+
+/* If it's a silver card, display silver */
+    /*background-color: silver;*/
+
+/* If it's a bronze card, display rgb(218, 128, 32)*/
+    /*background-color: rgb(218, 128, 32);*/
+
+/* If it's for guessing, then display gray */
+    /*background-color: gray;*/
+
 /* Display gray borders and shadows on the bottom and right sides of the card */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
     border-bottom: 2px solid white;
     border-right: 2px solid white;
   }
 
+/*  THESE ARE THE COLORS OF THE CARDS BASED ON THE PLAYERS INFO */
+    .silver {
+        background-color: silver;
+    }
+    .gold {
+        background-color: rgba(240, 189, 7, 0.886);
+    }
+    .bronze {
+        background-color: rgb(218, 128, 32);
+    } 
+
+    .black-shadow {
+        background-color: white;
+    }
+
   .guess-box {
     position: absolute;
     background-color: #fff;
-    padding: 0px 0px;
-    border: 1px solid #ccc;
+    transform: translate(470%, -35%);
     border-radius: 5px;
-    right: 180px;
-    margin-top: -22px;
   }
   .card-img {
+    width: 199px;
+    height: 199px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+  }
+
+/* If the player is being displayed as unknown/locked */
+  .locked {
+    filter: brightness(0); 
+  }
+
+  .card-img-border {
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 5px;
     border: 1px solid black;
     box-sizing: border-box;
-    background-color:white;
+    background-color: rgb(217, 217, 217);
   }
   
   .card-text {
