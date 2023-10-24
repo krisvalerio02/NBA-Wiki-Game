@@ -6,7 +6,7 @@ import pytest
 # for more info on testing
 @pytest.fixture
 def app():
-    app = create_app({
+    app = create_app(test_config={
         'TESTING': True,
     })
     return app
@@ -20,6 +20,6 @@ def client(app):
 def test_home_page(client):
     resp = client.get("/")
     assert resp.status_code == 200
-    assert b"Hello, World!\n" in resp.data
+    assert b"Welcome to the NBA Wiki Game!" in resp.data
 
 # TODO(Project 1): Write tests for other routes.

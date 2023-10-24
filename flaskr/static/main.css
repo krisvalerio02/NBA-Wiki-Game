@@ -59,27 +59,15 @@ nav a.active {
     margin-bottom: 35px;
     padding: 10px 0px 10px 10px;
 
-/* If it's a gold card, display this color rgba(240, 189, 7, 0.886) */
-    /*background-color: rgba(240, 189, 7, 0.886);*/
-
-/* If it's a silver card, display silver */
-    /*background-color: silver;*/
-
-/* If it's a bronze card, display rgb(218, 128, 32)*/
-    /*background-color: rgb(218, 128, 32);*/
-
-/* If it's for guessing, then display gray */
-    /*background-color: gray;*/
-
 /* Display gray borders and shadows on the bottom and right sides of the card */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
     border-bottom: 2px solid white;
     border-right: 2px solid white;
   }
 
-/*  THESE ARE THE COLORS OF THE CARDS BASED ON THE PLAYERS INFO */
+/* Set the color of the card based on it's use, related classes are below */
     .silver {
-        background-color: silver;
+        background-color: rgb(202, 202, 202);
     }
     .gold {
         background-color: rgba(240, 189, 7, 0.886);
@@ -87,6 +75,9 @@ nav a.active {
     .bronze {
         background-color: rgb(218, 128, 32);
     } 
+    .gray {
+        background-color: rgb(176, 176, 176);
+    }
 
     .black-shadow {
         background-color: white;
@@ -96,6 +87,12 @@ nav a.active {
     position: absolute;
     background-color: #fff;
     transform: translate(470%, -35%);
+    border-radius: 5px;
+  }
+  .guess-box-in-game {
+    position: absolute;
+    background-color: #fff;
+    transform: translate(470%, -90%);
     border-radius: 5px;
   }
   .card-img {
@@ -142,7 +139,42 @@ nav a.active {
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
   }
-  
   .button:hover {
     background-color: #0069d9;
+  }
+  
+  #newHintButton,
+  #giveUpButton,
+  #submitGuessButton {
+    padding: 12px 27px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  #newHintButton {
+    background-color: rgb(160, 159, 159);
+  }
+  #newHintButton:hover{
+    background-color: rgb(111, 111, 111);
+  }
+  #submitGuessButton {
+    background-color: #007bff;
+  }
+  #submitGuessButton:hover {
+    background-color: #0069d9;
+  }
+  #giveUpButton {
+    background-color: rgb(236, 22, 22);
+    text-decoration: none; 
+    font-family: sans-serif;
+  }
+  #giveUpButton:hover{
+    background-color: rgb(160, 13, 13);
+  }
+  .button-containers {
+    display: flex;
+    justify-content: center;
   }

@@ -12,6 +12,43 @@
 
 {% block content %}
 
+<!-- Div element that will hold the information of a new card -->
+{% if new_card == 'True' %}
+
+<h4>{{new_card_message}}</h4>
+
+<div class = "card {% if collection[selected_player][0] == 'Silver' %} silver
+        {% elif collection[selected_player][0] == 'Gold' %} gold
+        {% elif collection[selected_player][0] == 'Bronze' %} bronze 
+        {% endif %}"">
+    
+    <div class="card-img-border">
+        <img src="{{player_image_links[selected_player]}}"
+        alt="{{cards_data[selected_player][0]}} Image" class="card-img">
+    </div>
+
+    <div class="card-text">
+
+        <h2>{{cards_data[selected_player][0]}}</h2>
+
+        <p>
+            <strong>Team: </strong> {{cards_data[selected_player][1]}} <br>
+            <strong>Position: </strong> {{cards_data[selected_player][2]}} <br>
+            <strong>Number: </strong> {{cards_data[selected_player][3]}}
+        </p>
+
+        <a href="#" class="button">Read More</a>
+
+        <div class = "guess-box">
+            <p>&emsp;Guesses: {{collection[selected_player][1]}}&emsp;</p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+{% endif %}
+
 <!-- Div element holds information regarding the cards and how to display them. -->
 
 <div>

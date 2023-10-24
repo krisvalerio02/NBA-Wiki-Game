@@ -12,6 +12,71 @@
 
 {% block content %}
 
-<p>I may show question here</p>
+<!-- If the game isn't in progress, first prompt the user to begin with this button -->
+
+{% if game_in_progress == 'False' %}
+
+<h4>Welcome to the guessing game for the 2022-2023 NBA Basketball Season!</h4>
+<h4>Press the button below to begin</h4>
+<form method="POST" action="/nba22_23">
+    <button class="button">Let's get it!</button>
+</form>
+
+{% else %}
+<!-- Div element holds information regarding the cards and how to display them. -->
+
+<div>
+    
+<!-- Class = "card" AND based on the color/type of the card will have a class corresponding to its color/type 
+    (ex, if card type is gold, then % elif collection[player_id][0] == 'Gold' % gold will make the class = gold) -->
+
+    <div class="card gray">
+                
+    <!-- Div element that is in charge of displaying the player's image -->
+    
+        <div class="card-img-border">
+            <img src= "{{player_image}}"
+            alt=" Image" class="card-img locked">
+        </div>
+    
+    <!-- Div element displays the text within the card -->
+    
+        <div class="card-text">
+
+        <h2>Who am I?</h2>
+        
+    <!-- Input text form for guesses -->
+        <form method="POST" id="forGuesses" action="/nba22_23">
+            <input type="hidden" name="new_guess" value="True">
+            <input type="text" name="guess_attempt" placeholder="Enter your guess here" required>
+        </form>
+        <p>
+            <strong>Name: </strong> {{hints_to_display[0]}}... <br>
+            <strong>Team: </strong> {{hints_to_display[1]}} <br>
+            <strong>Position: </strong> {{hints_to_display[2]}} <br>
+            <strong>Number: </strong> {{hints_to_display[3]}} <br>
+            <strong>City: </strong> {{hints_to_display[4]}}
+            <div class = "guess-box-in-game">
+                <p>&emsp;Guesses: {{guesses}}&emsp;</p>
+            </div>
+        </p>
+        </div>
+    </div>
+</div>
+<!-- div holds the 3 bottom buttons, 'Guess', 'New Hint', 'Give Up' -->
+<div class="button-containers">
+    <button type="submit" form="forGuesses" class="game-button" id="submitGuessButton">Guess</button>
+    <form method="POST" action="/nba22_23">
+        <input type="hidden" name="get_new_hint" value="True">
+        <button class="game-button" id="newHintButton">New Hint</button>
+    </form>
+    <a href="/collection" class="game-button" id="giveUpButton" >Give Up </a>
+</div>
+
+{% endif %}
+
+<!-- messages include: "You don't have any more hints left!", "You guessed correctly!" -->
+
+<h3>{{message}}</h3>
 
 {% endblock %}
